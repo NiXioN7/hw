@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 using namespace std;
 class Node
 {
@@ -20,6 +20,19 @@ public:
     {
 
     }
+    void pop_front()
+    {
+        if (head == NULL) return;
+        if (head == tail)
+        {
+            delete tail;
+            head = tail = NULL;
+            return;
+        }
+        Node* node = head;
+        head = node->next;
+        delete node;
+    }
     void push_front(int data)
     {
         Node* node = new Node(data);
@@ -33,6 +46,16 @@ public:
         if (head == NULL) head = node;
         if (tail != NULL) tail->next = node;
         tail = node;
+    }
+    void show_all()
+    {
+        Node* tmp_node;
+        tmp_node = head;
+        while (tmp_node)
+        {
+            cout << tmp_node->data << endl;
+            tmp_node = tmp_node->next;
+        }
     }
     void show_head()
     {
@@ -51,8 +74,13 @@ int main()
     list.push_back(2);
     list.push_back(3);
     list.push_back(4);
+
+    //list.show_head();
+   // list.show_tail();
+    list.show_all();
     list.show_head();
-    list.show_tail();
-   
+    list.pop_front();
+    list.show_head();
+
 }
 
