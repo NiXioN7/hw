@@ -20,14 +20,14 @@ public:
     {
 
     }
-    void push_front(int data)
+    void push_front(int data) //created push_front()
     {
         Node* node = new Node(data);
         node->next = head;
         head = node;
         //if (tail == NULL) tail = node;
     }
-    void push_back(int data)
+    void push_back(int data) //created push_back()
     {
         Node* node = new Node(data);
         if (head == NULL) head = node;
