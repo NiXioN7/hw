@@ -83,6 +83,30 @@ public:
         cout << "Head: " << head->data << endl;
         cout << "Head next: " << head->next->prev->data << endl;
     }
+    void show_from_head()
+    {
+        Node* temp_node = head;
+        int i = 1;
+        cout << "From head" << endl;
+        while (temp_node)
+        {
+            cout << i << ": " << temp_node->data << endl;
+            temp_node = temp_node->next;
+            i++;
+        }
+    }
+    void show_from_tail()
+    {
+        Node* temp_node = tail;
+        int i = 1;
+        cout << "From tail" << endl;
+        while (temp_node)
+        {
+            cout << i << ": " << temp_node->data << endl;
+            temp_node = temp_node->prev;
+            i++;
+        }
+    }
     void show_tail()
     {
         cout << "Tail: " << tail->data << endl;
@@ -112,8 +136,8 @@ int main()
     list.push_front(3);
     list.push_front(4);
     list.push_back(5);
-    list.show_head();
-    list.show_tail();
-    list.show_all();
+    list.show_from_head();
+    cout << endl;
+    list.show_from_tail();
 }
 
